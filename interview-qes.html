@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .container{
+        display: flex;
+        flex-direction: row;
+        background: #ccc;
+        justify-content:center;
+        align-items:center;
+        height: 500px;
+    }
+    .item{
+        width: 200px;
+        height: 200px;
+        background: rgb(43, 49, 100);
+        border: 1px solid #ff0;
+        color: rgb(255, 255, 255);
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        padding: 20px;
+    }
+    .boldtxt{
+        color: red;
+    }
+
+
+.box{
+    width: 800px;
+    height: 500px;
+    margin: 10px auto;
+    background: rgb(56, 107, 165);
+    position: relative;
+}
+.box-item{
+    width: 200px;
+    height: 200px;
+    background: rgb(35, 160, 83);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+    </style>
+        
+</head>
+<body>
+
+            <div class="container">
+                <div class="item" id="myDiv"> item 1 </div>
+                <div class="item"> <button id="btnMe"> click me</button> </div>
+                <div class="item" id="myDiv2"> </div>
+             </div>
+
+             <div class="box">
+                    <div class="box-item"> 
+                        
+                            <ul id="drinks">
+                                    <li>Coffee</li>
+                                    <li>Water</li>
+                                </ul>
+
+                    </div>
+             </div>
+
+       
+     <script>
+// get the current url
+
+let currUrl = window.location.href;
+console.log(currUrl)
+
+// forEach 
+const myArr = [10, 20, 35];
+myArr.forEach((elem, index) => {
+    console.log(elem);
+   
+})
+
+// remove white space from the beginning and end of the string
+let str = "   Hello World ";
+let strTrim = str.trim("");
+console.log(strTrim);
+
+//4 ways to concatenate strings in JavaScript
+//concat() Method
+const name = "John";
+const age = 30;
+const conStr = name.concat(age);
+console.log(conStr);
+
+// + operator
+console.log('with + operator :', name+age);
+
+// template literal
+const temp = `first name is ${name} and age is ${age}`;
+console.log(temp);
+
+// join() method
+let superArr = ["alu", "Kul", "juki", "ola"];
+let joinMe = superArr.join(":");
+console.log(joinMe);
+
+//How to add or remove multiple CSS classes using JavaScript
+const myBox = document.querySelector(".box");
+myBox.classList.add("box1", "box2", "box3");
+console.log(myBox);
+
+const myBoxRem = document.querySelector(".box");
+myBox.classList.remove("box2", "box3");
+console.log(myBoxRem);
+
+//How to use the reduce() method in JavaScript
+//The reduce() method reduces a JavaScript array into a single value. It executes the given reducer function for each element of the array except empty values, resulting in a single output value.
+
+const arrReduce = [1, 9, 7, 4, 3];
+const getSum = arrReduce.reduce((initVal, currVal) => {
+    return initVal + currVal;
+},0);
+console.log(getSum);
+// the the max number in array
+const getMaxVal = arrReduce.reduce((initVal, currVal) => {
+    return initVal > currVal ? initVal : currVal;
+})
+console.log(getMaxVal);
+
+//How does try...catch work?
+try {
+    // block of code
+} catch (error) {
+    // handle the error
+} finally {
+    // execute in all cases
+}
+// The try clause is executed first.
+// If no exception is thrown, the catch clause is ignored and the execution of the try statement is completed.
+// If an exception is raised during the execution of the try clause, the rest of this clause is ignored. The catch clause is executed, and then what comes after the try statement is executed.
+// The finally clause is optional and executes after both clauses, regardless of whether an exception has been raised or not.
+
+
+// Scheduling: setTimeout and setInterval
+// We may decide to execute a function not right now, but at a certain time later. That’s called “scheduling a call”.
+
+// There are two methods for it:
+
+// setTimeout allows us to run a function once after the interval of time.
+// setInterval allows us to run a function repeatedly, starting after the interval of time, then repeating continuously at that interval.
+ function sayHello() {
+     console.log("Hello, How are you?")
+ }
+setTimeout(sayHello, 2000);
+
+// setInterval  - this function will execute and repeate on every 1 sec and print the msg
+function sayMyHello() {
+     console.log("Hello, How are you Jay")
+ }
+//setInterval(sayMyHello, 1000);
+
+//How to convert an array of objects to an object in JavaScript
+//The quickest way to convert an array of objects to a single object with all key-value pairs is by using the Object.assign() method along with spread operator syntax (...).
+//// Merge all array objects into single object
+
+const fruits = [
+    {
+        name: "orange",
+        color: "yell"
+    },
+    {
+        size: "100",
+        type: "fruit"
+    },
+    {
+        origin: "India",
+        tase: "sweet",
+        color: "yell" // duplicate property won't add
+    }
+];
+ // merger all objects into single
+
+ const allFruits = Object.assign({}, ...fruits);
+ console.log(allFruits);
+
+
+ //Object.is() method in JavaScript
+//Object.is() is very similar to the JavaScript strict comparison operator ===, but there are some slight differences which we'll cover in this article.
+//You can use Object.is() with numbers, strings, and even objects to test equality as shown below:
+Object.is('Mango', 'Mango');        // true
+Object.is('Mango', 'Orange');       // false
+Object.is(window, window);          // true
+Object.is(null, null);              // true
+Object.is([], []);                  // false
+
+
+
+//How to insert an element after another element in JavaScript
+//To append an HTML element to another element, you can use the appendChild() method of the target element object.
+
+const myDrinks = document.querySelector("#drinks");
+const elm = document.createElement("li"); // create <li> 
+const txtNode = document.createTextNode("Tea"); // create text node
+elm.appendChild(txtNode); // appent text node to <li>
+myDrinks.appendChild(elm);
+
+//How to get the width and height of the window using JavaScript
+const width = window.innerWidth;
+const height = window.innerHeight;
+
+//How to get first and last children of an element using JavaScript
+
+const ul = document.querySelector('#langs');
+// get first child
+const first = ul.firstChild;
+// get last child
+const last = ul.lastElementChild;
+
+
+//How to convert a string to a number in JavaScript
+parseInt('45') // 45
+parseInt('99.49') // 99
+parseInt('123Greetings.png') // 123
+
+
+
+        const myBtn = document.getElementById("btnMe");
+        myBtn.addEventListener("click", numCountMe);
+
+        function numCountMe(){
+            setTimeout(() => {
+            numCount(3);
+        }, 2000)
+        }
+  
+       
+                function numCount(num1, num2) {
+                    
+                    let paratext = "<p>A Boolean value that <strong class='boldtxt'>specifies</strong> whether the event should be executed in the capturing or in the bubbling phase.</p>";
+
+                        let myResult = num1 + num2;
+                        document.querySelector("#myDiv").innerHTML = myResult;
+
+                        document.querySelector("#myDiv2").innerHTML= paratext;
+                   
+                }
+            
+                //numCount(3,5);
+
+
+          const num = [10, 20, 27, 30, 40, 50, 60];
+        //   //slice - get the eleleme from start index and end index and last index is not included
+        //   const result = num.slice(2, 4)
+        //   console.log(result); // 
+        //   // splice 
+
+
+        //   const resultSplice = num.splice(2, 0, 100, 200)
+        //   console.log(resultSplice);
+        //   console.log(num);
+
+        
+
+        //   //
+        //    for(elemmm of num) {
+        //        console.log(elemmm);
+        //    }
+        //    const num2 = [10, 20, 35];
+
+        //    const outputSome = num2.every((value)=> { return (value %2 == 0 ); });
+        //    console.log(outputSome);
+
+    
+     </script>
+</body>
+</html>
